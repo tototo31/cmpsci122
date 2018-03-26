@@ -36,19 +36,29 @@ class OrderedLinkedList:
         self.count=0
 
     def add(self, value):
-        new_node = Node(value)
-        current = self.head
-        previous = None
-        if self.count == 0: # if the list is empty set head and tail equal to this
-            self.head = new_node
-            self.tail = new_node
+        if self.head==None: # if there isnt anything in the list
+            new_node=Node(value)
+            self.head=new_node
+            self.tail=self.head
+        elif self.tail==self.head: # if there is only one value in the list
+            if self.head.value > value: #if the value is greater than the only other then put it at the tail
+                self.tail=Node(value)
+                self.head.setNext(self.tail)
+            else:
+                self.head = new_node
+                self.head.setNext(self.tail)
         else:
-            while current.getValue() < value and not current.next == None: #while the value of the current node is less than the value were trying to add iterate though the list
-                previous = current # set previous - after this loop ends previous should be < value but previous.next > value
+            new_node=Node(value)
+            current = self.head
+            previous = None
+            while current.getValue() < new_node.getValue() and not current.getNext() is None:
+                previous = current
                 current = current.getNext()
-            new_node.setNext = current # set the next node to the one after previous
-            previous.setNext = new_node # set the last node < value to point to value
-        self.count += 1
+            if current == self.head:
+                self.head = new_node
+            new_node.setNext(current)
+            current.setNext(new_node)
+        self.count+=1
 
     def delete(self, value):
         pass
@@ -83,6 +93,7 @@ ordered_ll.add(58)
 ordered_ll.add(33)
 ordered_ll.add(1)
 ordered_ll.add(-88)
+print("list =")
 ordered_ll.printList()
 print(ordered_ll.head)
 print(ordered_ll.tail)
