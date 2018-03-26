@@ -1,0 +1,7 @@
+total 736
+drwxr-xr-x  5 eflubacher  staff   160B Mar 20 10:13 .
+drwxr-xr-x  8 eflubacher  staff   256B Mar 20 09:59 ..
+-rw-r--r--  1 eflubacher  staff    19B Mar 20 10:13 .bashrc
+-rw-r--r--@ 1 eflubacher  staff   361K Mar 20 09:59 UNIX Lab #5.pdf
+-rw-r--r--  1 eflubacher  staff     0B Mar 20 10:13 output.txt
+********

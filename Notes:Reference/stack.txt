@@ -1,0 +1,21 @@
+Stacks:
+A stack is FILO (First In Last Out)
+
+Pushing an item to the stack puts an item on top
+Popping an item off the stack removes the top item
+
+Unlike the linked list the only pointer we need is the tail pointer
+
+Stacks can be used for post fix mathmatical calculations
+
+
+Queues:
+Ordered collection of iterms where the addition of new items happens at one end(tail) and removal of existing items happens at the other end(head)
+operations - 
+	enqueue - append an element to tail
+	dequeue - remove an element from the head
+	isEmpty - returns true if there are no items in queue
+	peek - returns the head of the queue without removing it
+	size - returns number of items in the queue
+
+

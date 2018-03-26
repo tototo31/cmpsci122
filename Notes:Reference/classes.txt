@@ -1,0 +1,24 @@
+you always need to include self in a class function
+
+def MyClass:
+	def method(self, arg1, arg 2):
+		statements
+
+__init__ is a special initializer function it is run everytime a new instance is started
+
+def __init__(self):
+	self.i = 12345
+
+it can have more than one argument aswell
+methods are functions contained within classes. they are defined in the same way as a function
+
+to access an instance variable remember to do self.var rather than just var
+
+To create a class that cal be called without the need of a running instance you put @classmethod before it to denote it can be run without the instance.
+
+ex.
+@classmethod
+def myFunction(self):
+	pass
+
+this can be run wihtout creating an instance of the class

@@ -1,0 +1,6 @@
+A recursive algorithm must have a base case
+A recursive algorithm must change its state and moce toward the base case
+A recursice algorithm must call itself
+
+almost all iterative problems can be solved with recursion
+a recursive function will become ineffecient when it computes the same thing over and over.

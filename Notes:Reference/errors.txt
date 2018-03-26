@@ -1,0 +1,51 @@
+Syntax errors are produced when python is translating source code to byte code
+
+Runtimee errors are produced by the runtime system. If something goes wrong while executing.
+
+Semantic errors are produced when everything is written correctly, but the code doesnt produce the output you want
+
+Language names:
+
+	SyntaxError
+	IndentationError
+	NameError
+	Type Error
+	KeyError
+	AttributeError
+	IndexError
+	ZeroDivisionError
+	ValueError
+
+Symantic errors are the moast difficult to debug because the program will run sucessfully but will give you the wrong output.
+
+raise ERROR is a command to raise an error of choice - or create your own with your own desctioption
+
+raise ValueError("Be careful you cant divide by zero")
+
+^ raises a ValueError with desctiption "Be careful you cant divide by zero"
+
+We can use the try function to catch errors
+
+try:
+	#some code to try
+
+except:
+	#if an exception is raised in the try statment execute this code
+
+Except can react to specific exceptions by doing something like except ValueError: and this will react only to raised value errors
+
+You can also add an else statment after except to execute code if not exceptions were raised
+
+try:
+	#try this code
+
+except:
+	#execute if an error is raised
+
+else:
+	#if no exceptions are raised run this afterward
+
+finally:
+	#run this after everything else as a sort of cleanup. This is run even if exceptions are raised.
+
+If you call a function that potentially raises exceptions, and you cant do anhthing meaningful about the conditions that are raised, then do not catch the exception message.	

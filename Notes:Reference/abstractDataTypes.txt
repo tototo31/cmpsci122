@@ -1,0 +1,180 @@
+Linear structures
+stacks, queues and lists are eamples of data collections whose items are ordered depending on how they are added or removed
+some operations work better on different types of structures
+a list is a collection of items where each item holds a relative position with respect to the others
+insertions and deletions at interior positions of a list are expensive
+linked lists provide an alternative to an array-based sequence(such as a python list). Both array-based sequences and linked lists keep elements in a certain order, but using a very different style.
+
+A node can be added to a linked list in three ways
+	At the front of the linked list
+	at the end of the linked list
+	After a given node
+
+when Deleting nodes, we need to:
+	find previous node of the node to be deleted
+	change the previous node
+	unlink node
+
+Double linked list also include a pointer to the previous node
+Double linked lists can be traversed in either direction
+however every node requires extra space for to store the previous node
+
+A node can be added to a double linked list in four ways:
+	At the front
+	after a given node
+	before a given node
+	at the end of the list
+
+
+A circular linked list points in a loop
+any node can be a starting point
+
+
+Stacks:
+A stack is FILO (First In Last Out)
+
+Pushing an item to the stack puts an item on top
+Popping an item off the stack removes the top item
+
+Unlike the linked list the only pointer we need is the tail pointer
+
+Stacks can be used for post fix mathmatical calculations
+
+
+Queues:
+Ordered collection of iterms where the addition of new items happens at one end(tail) and removal of existing items happens at the other end(head)
+operations -
+	enqueue - append an element to tail
+	dequeue - remove an element from the head
+	isEmpty - returns true if there are no items in queue
+	peek - returns the head of the queue without removing it
+	size - returns number of items in the queue
+
+The tail will never be removed unless you are implementing a priority queue
+only the head needs to be managed
+
+We need to make sure that if we dequeue the last item to set the pointers (if size == 0)
+
+
+
+Non-Linear Structures:
+
+Trees:
+Hierarchical data structures that are widely used, with a root value and subtrees witha parent node
+The tree data structure is upsidedown the root is on top
+A tree consist of nodes and its connections are called edges
+The bottom nodes are also named leaf nodes or external nodes
+A tree does not have a cycle
+Nodes that come from the same parent are called sibling nodes
+Nodes can form subtrees
+Leaf nodes only exist at the bottom most level
+
+One node of every tree is designated as the root
+Every node n, except the root node, is connected by an edge from exactly one other node p, where p is the parent of n
+A unique path traverses from the root to each node
+
+A binary tree is a data structure where every node has at most two children
+since each element in a binary tree can only have 2 children, we typically name them the left and right child
+
+Values less than the root go on the left of the tree values greater than the root go to the right side ???
+
+a full binary tree can have children with either two or no children
+a perfect binary tree has two children per node
+a complete binary tree can either have two children or one but not none
+a degenerate binary tree has only one child per node
+
+Properties of binary trees
+	a binary tree of n nodes has n-1 edges
+	for every k >= 0, there are no more than 2^k nodes in level k
+	a binary tree with k levels has at most 2^(k-1) leaves
+	the number of nodes on the last level is at most the sum of the number of nodes on all other levels plus 1
+	a binary tree with k levels has not more than (2^k)-1 nodes
+
+Adjacency list:
+When traversing this list a queue can be used to keep track of where youre working
+
+TRAVERSAL:
+
+GOOGLE BFS - algrithm for traversing non linear list types - focuses on visiting all children of the parent node before traversing to children of children
+
+GOOGLE DFS - algorithm that prioritizes getting as deep as possible before moving to the next node - traversing with a stack is helpful (pop when you hit bottom until you find a node with unvisted children)
+
+Topological sorting
+* A topological sort takes a directed acyclic graph DAG and produces a linear ordering of all its vertices such that if the graph G contains an edge (v, w) then the vertex v comes before the vertex w in the ordering
+* Any linear ordering in which all the arrows go to the right is a valid solution
+Topological sort is good for following instructions
+
+Dijkstra's algorithm
+* use to dertermine the shortest path from one node(or vertex) in a graph to every other node within the same graph data structure
+* The algorithm will run until all nodes in the graph have been visited, thus, the shortes path between any 2 nodes can be saves and looked up after
+* for each neighboring node, compute the distance for the neighboring node - CHECK NOTES TO FINISH COPYING
+
+
+HASHING:
+
+Hash Tables:
+Collection of items which are stored in such a way as to make it easy to find them later
+Each position of the hash table, often called a slot, can hold an item and is named by an integer value starting at 0
+The mapping between an item and the slot where that item belongs in the hash table is called the hash function
+A good function must be efficiently computable and should uniformly distribute the keys
+
+Modular hashing:
+once hash values have been computed, we can insert each item into the hash table at the designated position
+The load factor (lambda) of a hash table is commonly denoted (lambda) = # of items / table size
+
+Collision(Hashing):
+When we want to search for an item we simply use the hash function to compute the slot name for the item and then check the hash table to see if it is present
+This technique is going to work only if each item maps to a unique location in the hash table
+collision is when two or more items need to be in the same slot, and it creates problems for the hashing technique
+The probability of a collision increases as the load factor increases
+
+Folding method(hashing):
+Divide the item into equal-size pieces (the last piece may not be of equal size)
+add pieces to obtain the item to be hashed
+some folding methods go one step forther and reverse every other piece before teh addition
+
+Mid square method:
+square the item
+extract some portion of the resulting digits
+
+Hashing a string:
+Convert earch character of the string into the ordinal values(ascii table values)
+add the ordinal values and use the modular method to get a hash value
+
+Collision resolution:
+when two items hash to the same spot, we muct have a systematic method for placing the second item in the hash table
+if the hash function is perfect, collisions will never occur
+collision resolution is one of the most important parts of a hash function
+the process of looking for another slot after a collision occured is know as REHASHING
+
+Open addressing(collision resolution):
+find the next open slot in the hashtable
+in general:
+	hash_index = (hash_index+skip)%hash_table_size
+Linear probing
+	if slot is occupied go to the next until you find an open slot
+Clustering:
+	when many collisions occur at the same hash value, a number of surrounding slots will be fill by the linear probing resolution
+
+Quadratic probing:
+quadratic probing is a variation og linear probing where if you were to try to insert into a space that is filled - hash_index=(hash_index+skip**2)%hash_table_size
+There is only a finite number of spaces where you can put items - the slots will fill and since its not linear you will only be able to have acces to slots returned by ^^
+Quadratic probing will reduce the complexity of searching a lot, but problems come when its time to insert
+
+Chaining:
+aloows each slot to hold a reference to a collection of items
+chaining allows many items to exist in the same slot on the hash table
+when collisions happen, the item is still placed in the proper slot of the hash table
+as more items hash to the same location, the difficulty of searching for the item in the collection increases
+chaining may be more useful when theres a small amount of data
+
+Remember:
+if the load factor (lambda) is small, then there is a lower chance of  collision, meaning that more items are where they should be
+if (lambda) is large, meaning that the table is filling up, then there are more and more collisions. this means that collision resolution is more difficult, requireing more comparisons to find and empty slots
+*changing the size of a hashtable means you need to redo everything*
+
+Where is hashing used?
+file integrity
+passwords
+
+Python has a builting has function
