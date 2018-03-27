@@ -36,7 +36,7 @@ class OrderedLinkedList:
         self.count=0
 
     def add(self, value):
-        print("adding {}".format(value))
+        # print("adding {}".format(value))
         new_node = Node(value)
         if self.head==None: # if there isnt anything in the list
             self.head=new_node
@@ -75,16 +75,20 @@ class OrderedLinkedList:
     def delete(self, value):
         current = self.head
         previous = None
-        if self.search(value):
-            while current.getValue() != value and current != self.tail:
-                if current.getValue == value:
+        if self.search(value) == True:
+            while not current is None:
+                if current.getValue() == value:
                     break
                 previous = current
                 current = current.getNext()
         else:
             print("Value not in list")
+            return
 
-        if current == self.tail:
+        if self.count == 1:
+            self.tail = None
+            self.head = None
+        elif current == self.tail:
             self.tail = previous
             previous.setNext(current.getNext())
         elif current == self.head:
@@ -92,12 +96,13 @@ class OrderedLinkedList:
         else:
             previous.setNext(current.getNext())
         del(current)
+        self.count -= 1
 
     def search(self,value):
         current = self.head
         found = False
-        while current != None  and not found:
-            if current.getValue() == value:
+        while not current is None and not found:
+            if current.value == value:
                 found = not found
             else:
                 current = current.getNext()
@@ -105,7 +110,7 @@ class OrderedLinkedList:
 
     def pop(self):
         value = self.tail.getValue()
-        self.delete(self.tail)
+        self.delete(self.tail.getValue())
         return value
 
     def isEmpty(self):
@@ -119,32 +124,41 @@ class OrderedLinkedList:
         while temp:
             print(temp.getValue(), end=' ')
             temp=temp.getNext()
-        print()
+        # print()
 
 
 #TESTS - remove before submitting
-if __name__ ==  "__main__":
-    ordered_ll=OrderedLinkedList()
-    ordered_ll.add(8)
-    ordered_ll.printList()
-    ordered_ll.add(7)
-    ordered_ll.printList()
-    ordered_ll.add(3)
-    ordered_ll.printList()
-    ordered_ll.add(-6)
-    ordered_ll.printList()
-    ordered_ll.add(58)
-    ordered_ll.printList()
-    ordered_ll.add(33)
-    ordered_ll.printList()
-    ordered_ll.add(1)
-    ordered_ll.printList()
-    ordered_ll.add(-88)
-    print("list =", end=" ")
-    ordered_ll.printList()
-    print(ordered_ll.head)
-    print(ordered_ll.tail)
-    print(ordered_ll.isEmpty())
-    print(ordered_ll.size())
-    print(ordered_ll.search(-6))
-    print(ordered_ll.search(-5))
+# if __name__ ==  "__main__":
+#     ordered_ll=OrderedLinkedList()
+#     ordered_ll.add(8)
+#     ordered_ll.add(7)
+#     ordered_ll.add(3)
+#     ordered_ll.add(-6)
+#     ordered_ll.add(58)
+#     ordered_ll.add(33)
+#     ordered_ll.add(1)
+#     ordered_ll.add(-88)
+#     ordered_ll.printList()
+#     print()
+#     ordered_ll.head
+#     ordered_ll.tail
+#     ordered_ll.isEmpty()
+#     ordered_ll.size()
+#     ordered_ll.delete(7)
+#     ordered_ll.printList()
+#     ordered_ll.delete(-88)
+#     ordered_ll.printList()
+#     ordered_ll.delete(58)
+#     ordered_ll.printList()
+#     print()
+#     ordered_ll.size()
+#     ordered_ll.head
+#     ordered_ll.tail
+#     ordered_ll.pop()
+#     ordered_ll.printList()
+#     print()
+#     ordered_ll.pop()
+#     ordered_ll.printList()
+#     print()
+#     ordered_ll.head
+#     ordered_ll.tail
