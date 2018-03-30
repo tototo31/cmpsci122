@@ -1,0 +1,13 @@
+
+
+Merge sort:
+Merge sort is a divide and conquer algorithm and it is one of the most respected algorithims
+merge sort continually splits a list in half. if the list is empty or has one item, it is sorted by definition
+if the list has more than one item we split the list and recursively invoke a merge algorithm
+
+Quick sort:
+quick sort is  a divide-and-conquer algorithm that picks an element as pivot and partitions the given array around the picked pivot
+one side holds elements smaller than the pivot and the other one hold elements greater than the pivot
+we can pick a pivot in different ways: pick the first element, pick the last element, pick a random element, pick the median
+partitioning begins by locating two position markers (left and right) at the beginnning and end of the remaining items in the list
+

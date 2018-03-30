@@ -1,0 +1,5 @@
+when you write a program you should be concerned about the resource needs of the program. The two main resources to consider are time and memory
+The resource to optimize for depends on the application and the computing system
+the ammout of resources consumed often depends on the amount of data you have
+
+Algorithm analysis does not answer the question "How much of a resource is consumed to process?" but rather "What is the worst case?"
