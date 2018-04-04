@@ -1,0 +1,6 @@
+
+Masters theorem: the most used technique to find the complexity of a recurrence relation
+most recurrences will be seen in the for T(n) = aT(n/b) + f(n) where a >= 1, b > 1
+
+Big O notation is a way to show the worst case effiecency of a program
+

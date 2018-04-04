@@ -49,24 +49,24 @@ class Queue:
             self.head = new_node
             self.tail = new_node
         else:
-            new_node.setNext(self.head)
-            self.head = new_node
+            self.tail.setNext(new_node)
+            self.tail = new_node
         self.count += 1
 
     def dequeue (self):
         toRemove = self.head
-        value = self.head.getValue()
+        value = None
         if self.count == 1:
+            value = self.head.getValue()
             self.head = None
             self.tail = None
-            self.count -= 1
         elif self.count == 0:
             return "Queue is empty"
         else:
-            #set new tail remove current tail
-            pass # Logic for if there is more than one or none elements
+            value = self.head.getValue()
+            self.head = toRemove.getNext()
 
-        del(toremove)
+        del(toRemove)
         self.count -= 1
         return value
 
@@ -77,3 +77,26 @@ class Queue:
             print(temp.value, end=' ')
             temp = temp.next
 
+if __name__ == "__main__":
+    queue=Queue()
+    print(queue.isEmpty())
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(4)
+    queue.printQueue()
+    print()
+    print(queue.isEmpty())
+    print(queue.size())
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
+    queue.enqueue(3)
+    queue.enqueue(2)
+    queue.printQueue()
+    print()
+    queue.dequeue()
+    queue.printQueue()
+    print()
