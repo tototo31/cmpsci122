@@ -1,0 +1,24 @@
+Functions are a method of abstraction that describe compound operations independant of the particular values of their arguments
+In functional programming, functions take input and produce output, without any side effects
+Functions that manipulate functions are called higher-order functions
+
+a=map(lambda x: x+1, [1,2,3])
+print(list(a))
+print(list(a))
+
+you cant use a more than once without computing it again
+
+List Comprehension:
+
+List comprehension provide a concise way to create lists. Common applictionsare to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition
+
+squares = list(map(lambda x: x**2, range(10)))
+squares = [x**2 for x in range(10)]
+
+these two examples do exactly the same thing, but are purely functional
+
+
+These functions are very helpful:
+map()
+reduce()
+filter()
